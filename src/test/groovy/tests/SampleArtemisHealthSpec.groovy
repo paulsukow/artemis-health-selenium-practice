@@ -45,7 +45,7 @@ class SampleArtemisHealthSpec extends Specification {
         watchDemoPage.isOpen()
     }
 
-    def 'should be able to read some blog articles'() {
+    def 'should be able to read a blog article'() {
         when: 'you select the blog from the insights menu'
         NavigationBar navigationBar = new NavigationBar(driver)
         navigationBar.selectBlogFromInsightsDropDownMenu()
@@ -53,11 +53,8 @@ class SampleArtemisHealthSpec extends Specification {
         then: 'you are redirected to the blog page'
         BlogPage blogPage = new BlogPage(driver)
         blogPage.isOpen()
-    }
 
-    def 'should be able to open the first blog post'() {
         when: 'you click on the first blog post'
-        BlogPage blogPage = new BlogPage(driver)
         String firstFeaturedBlogPostTitle = blogPage.getFirstFeaturedBlogPostTitle()
         blogPage.selectFirstFeaturedBlogPost()
 
